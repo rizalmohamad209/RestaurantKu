@@ -7,15 +7,15 @@ import FaUser from "@meronex/icons/fa/FaUser";
 export default function Topbar() {
   const auth = useSelector((state) => state.auth);
   return (
-    <div>
+    <div className="mt-5">
       <Responsive desktop={2} justify="between" items="center">
-        <div>Restoranku</div>
+        <div className="text-2xl">RestoranKu</div>
 
         <div className="mr-5 text-right">
           <Link to={auth?.user ? "/akun" : "/signin"}>
-            <div className="mr-2 inline-block text-red-600 font-bold">
+            <div className="mr-2 inline-block text-black font-bold">
               {auth?.user?.username}
-              <ButtonCircle icon={<FaUser />} />
+              <ButtonCircle color="black" icon={<FaUser />} />
             </div>
           </Link>
         </div>

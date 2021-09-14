@@ -34,7 +34,7 @@ export default function Index() {
   }, [dispatch, products.keyword, products.categori, products.tagsi]);
 
   const totalBelanja = cart.reduce((total, item) => {
-    return total + (item.qty * item.price);
+    return total + item.qty * item.price;
   }, 0);
 
   console.log("====================================");
@@ -102,6 +102,7 @@ export default function Index() {
                   return (
                     <div key={index} className="p-2">
                       <CardProduct
+                        color="blue"
                         title={product.name_products}
                         price={product.price}
                         imgUrl={product.image}

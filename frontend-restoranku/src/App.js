@@ -11,6 +11,7 @@ import addAddress from "./pages/AddAddress";
 import { Provider } from "react-redux";
 import store from "./app/store";
 import UserAddress from "./pages/UserAddress";
+import Checkout from "./pages/Checkout";
 
 function App() {
   React.useEffect(() => {
@@ -25,8 +26,9 @@ function App() {
           <Route path="/signup" exact component={Signup} />
           <Route path="/signup/sukses" exact component={SignupSukses} />
           <Route path="/signin" exact component={Signin} />
-          <Route path="/addAddress" exact component={addAddress} />
+          <Route path="/address/addAddress" exact component={addAddress} />
           <Route path="/address" exact component={UserAddress} />
+          <Route path="/checkout" exact component={Checkout} />
         </Switch>
       </Provider>
     </Router>

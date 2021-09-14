@@ -1,9 +1,7 @@
 import { arrayOf, string, shape, oneOfType, number, func } from "prop-types";
 import { CardItem, Button } from "upkit";
-
 import FaArrowRight from "@meronex/icons/fa/FaArrowRight";
 import React from "react";
-import { deleteCart } from "../../api/cart";
 
 export default function Cart({ items, onItemInc, onItemDec }) {
   console.log("====================================");
@@ -12,6 +10,7 @@ export default function Cart({ items, onItemInc, onItemDec }) {
   return (
     <div>
       <Button
+        color="blue"
         text="Checkout"
         fitContainer
         iconAfter={<FaArrowRight />}

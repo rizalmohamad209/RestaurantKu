@@ -16,7 +16,6 @@ export default function AddAddress() {
     setValue,
     watch,
     getValues,
-    setError,
   } = useForm();
 
   let allFields = watch();
@@ -108,7 +107,7 @@ export default function AddAddress() {
               />
             </FormControl>
             <FormControl label="Detail Alamat">
-              <InputText
+              <Textarea
                 name="detail_pengiriman"
                 placeholder="Detail Alamat Anda"
                 fitContainer
