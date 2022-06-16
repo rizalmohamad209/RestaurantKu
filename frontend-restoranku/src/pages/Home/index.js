@@ -37,16 +37,6 @@ export default function Index() {
     return total + item.qty * item.price;
   }, 0);
 
-  console.log("====================================");
-  console.log(totalBelanja);
-  console.log("====================================");
-
-  // console.log("====================================");
-  // console.log(carts);
-  // console.log("====================================");
-  console.log("====================================");
-  console.log("ini state cart", cart);
-  console.log("====================================");
 
   return (
     <div>
@@ -102,10 +92,11 @@ export default function Index() {
                   return (
                     <div key={index} className="p-2">
                       <CardProduct
-                        color="blue"
+                        color="red"
                         title={product.name_products}
                         price={product.price}
                         imgUrl={product.image}
+
                         onAddToCart={(_) => dispatch(addItem(product))}
                       />
                     </div>

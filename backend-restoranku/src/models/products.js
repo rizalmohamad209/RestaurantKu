@@ -12,6 +12,11 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "category",
         as: "categories",
       });
+      this.hasMany(models.orderItems, {
+        foreignKey: "product_id",
+        as: "productss"
+
+      })
 
       this.hasMany(models.tags, {
         as: "tags",

@@ -3,8 +3,6 @@ const jwt = require("jsonwebtoken");
 module.exports = {
   checkLogin: (req, res, next) => {
     const bearer = req.header("authorization");
-    console.log(bearer);
-    console.log();
     if (!bearer) {
       res.status(401).send({
         msg: "Please login first",

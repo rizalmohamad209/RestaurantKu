@@ -5,11 +5,7 @@ import { config } from "../../config/config";
 import { Select } from "upkit";
 
 export default function SelectWilayah({ tingkat, kodeInduk, onChange, value }) {
-  console.log("=================");
-  console.log(tingkat);
-  console.log(kodeInduk);
-  console.log(value);
-  console.log("=================");
+
   let [data, setData] = React.useState([]);
   let [isFetching, setIsFetching] = React.useState(false);
 
@@ -21,9 +17,7 @@ export default function SelectWilayah({ tingkat, kodeInduk, onChange, value }) {
       .finally((_) => setIsFetching(false));
   }, [kodeInduk, tingkat]);
 
-  console.log("====================================");
-  console.log("ini data wilayah", data);
-  console.log("====================================");
+
   return (
     <Select
       options={data.map((wilayah) => ({

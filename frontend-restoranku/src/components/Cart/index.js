@@ -2,6 +2,7 @@ import { arrayOf, string, shape, oneOfType, number, func } from "prop-types";
 import { CardItem, Button } from "upkit";
 import FaArrowRight from "@meronex/icons/fa/FaArrowRight";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Cart({ items, onItemInc, onItemDec }) {
   console.log("====================================");
@@ -9,13 +10,17 @@ export default function Cart({ items, onItemInc, onItemDec }) {
   console.log("====================================");
   return (
     <div>
-      <Button
-        color="blue"
-        text="Checkout"
-        fitContainer
-        iconAfter={<FaArrowRight />}
-        disabled={!items.length}
-      />
+      <Link to="/checkout">
+        <div className="px-2 pb-2">
+          <Button
+            color="blue"
+            text="Checkout"
+            fitContainer
+            iconAfter={<FaArrowRight />}
+            disabled={!items.length}
+          />
+        </div>
+      </Link>
       {!items.length ? (
         <div className="text-center text-sm text-red-900">
           {" "}
@@ -24,14 +29,14 @@ export default function Cart({ items, onItemInc, onItemDec }) {
       ) : null}
       {items.map((item, index) => {
         return (
-          <div key={index} className="mb-2">
+          <div key={index} className="mb-2 px-2 pb-2">
             <CardItem
               imgUrl={item.image}
               name={item.name_products}
               qty={item.qty}
               onInc={(_) => onItemInc(item)}
               onDec={(_) => onItemDec(item)}
-              color="orange"
+              color="blue"
             ></CardItem>
           </div>
         );

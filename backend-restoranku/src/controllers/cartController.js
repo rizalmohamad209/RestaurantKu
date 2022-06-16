@@ -4,12 +4,52 @@ const { Op } = require("sequelize");
 module.exports = {
   updateCart: async (req, res) => {
     const { body } = req;
-    console.log(body);
+    // console.log(body);
     const productsId = body.map((itm) => {
       return itm.id;
     });
 
-    console.log(productsId);
+
+    let allcartsByUser = await cartItem.findAll({
+      where: {
+        usr_id: req.deCodeToken.id,
+      },
+    })
+
+    const cartByUser = allcartsByUser.map((itm) => {
+      return itm.dataValues
+    })
+
+    console.log(cartByUser);
+    console.log("===============");
+    console.log(body);
+
+    console.log("===============");
+
+    const filterByReference = (arr1, arr2) => {
+      let res = [];
+      res = arr1.filter(el => {
+        return !arr2.find(element => {
+          return element.id === el.id;
+        });
+      });
+      return res.map((itm) => {
+        return itm.id
+      })
+    }
+    let id = filterByReference(cartByUser, body);
+
+    console.log(id);
+
+    let deleted = await cartItem.destroy({
+      where: {
+        id: id,
+        usr_id: req.deCodeToken.id,
+      }
+    })
+
+    console.log(deleted);
+
     let productss = await products.findAll({
       where: {
         id: {
@@ -18,7 +58,6 @@ module.exports = {
       },
     });
 
-    console.log(productss);
     try {
       const cartItems = body.map((item) => {
         let relatedProduct = productss.find(

@@ -78,7 +78,7 @@ export default function AddAddress() {
             <FormControl label="Provinsi">
               <SelectWilayah
                 onChange={(option) => updateValue("provinsi", option)}
-                name="provinsi"
+
                 value={getValues().provinsi}
               />
             </FormControl>
@@ -103,6 +103,7 @@ export default function AddAddress() {
                 onChange={(option) => updateValue("kelurahan", option)}
                 kodeInduk={getValues().kecamatan?.value}
                 tingkat="kelurahan"
+
                 value={getValues().kelurahan}
               />
             </FormControl>
